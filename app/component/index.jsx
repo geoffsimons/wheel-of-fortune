@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <Wheel angle="45" />
+        <Wheel angle={45} />
       </div>
     )
   }

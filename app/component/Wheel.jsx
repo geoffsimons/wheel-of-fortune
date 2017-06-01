@@ -1,11 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import debug from 'debug';
 
 // TODO: Build wedges from prizes array.
 function Wheel(props) {
   const trans = {
     transform: `rotate(${props.angle}deg)`,
-    'transform-origin': '100px 100px'
+    transformOrigin: '100px 100px'
   };
   debug('TRANS:', trans);
   return(
