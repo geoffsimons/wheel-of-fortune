@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -12,6 +13,9 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
+  },
+  resolve {
+    alias: { debug: './app/util/debug' }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -26,6 +30,10 @@ module.exports = {
         test: /\.js|\.jsx/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!sass')
       }
     ]
   }
