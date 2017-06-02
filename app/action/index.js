@@ -2,7 +2,13 @@ import debug from '../util/debug';
 
 const MAX_VELOCITY = 360; // degrees per second
 const ACCELERATION = 50;  // % per second per second
-const FRICTION     = 10;  // % per second per second
+const FRICTION     = -10; // % per second per second
+
+function clamp(x, min, max) {
+  if(x < min) return min;
+  if(x > max) return max;
+  return x;
+}
 
 export function startTicker() {
   return { type: 'START_TICKER' };
@@ -33,7 +39,11 @@ export function tickTime() {
       const da = v * dt;
       debug('v:', v);
       debug('dt:', dt);
-      dispatch(updateWheel(wheel.angle + da, wheel.velocity));
+      const dv = wheel.pressTime ?
+                 ACCELERATION * dt :
+                 FRICTION * dt;
+      debug('dv:', dv);
+      dispatch(updateWheel(wheel.angle + da, wheel.velocity + dv));
     }
     dispatch({ type: 'TIME_TICK', time: t });
   };
