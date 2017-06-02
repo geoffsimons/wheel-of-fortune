@@ -11,7 +11,11 @@ export function releaseSpin() {
 }
 
 export function tickTime() {
-  return { type: 'TIME_TICK' };
+  return (dispatch, getState) => {
+    // TODO: calculate wheel delta
+    // TODO: dispatch updateWheel
+    dispatch({ type: 'TIME_TICK' });
+  };
 }
 
 export function updateWheel(angle, velocity) {
