@@ -1,6 +1,6 @@
 import debug from '../util/debug';
 
-const MAX_VELOCITY = 720; // degrees per second
+const MAX_VELOCITY = 2000; // degrees per second
 const ACCELERATION = 100;  // % per second per second
 const FRICTION     = -50; // % per second per second
 

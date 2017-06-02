@@ -41,14 +41,7 @@ class App extends Component {
     return(
       <div>
         <Wheel angle={angle} />
-        <Controls updateWheel={(ang, vel) => dispatch(updateWheel(ang, vel))}/>
         <Meter value={velocity} />
-        <button onClick={() => dispatch(tickTime())}>TICK</button>
-        {
-          tickerStarted ?
-          <button onClick={() => dispatch(stopTicker())}>STOP</button> :
-          <button onClick={::this.startAnim}>ANIM</button>
-        }
         <button
           onMouseDown={::this.startSpin}
           onTouchStart={::this.startSpin}
@@ -59,6 +52,13 @@ class App extends Component {
     )
   }
 }
+// <Controls updateWheel={(ang, vel) => dispatch(updateWheel(ang, vel))}/>
+//   <button onClick={() => dispatch(tickTime())}>TICK</button>
+//   {
+//     tickerStarted ?
+//     <button onClick={() => dispatch(stopTicker())}>STOP</button> :
+//     <button onClick={::this.startAnim}>ANIM</button>
+//   }
 
 App.propTypes = {
   angle: PropTypes.number,
