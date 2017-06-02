@@ -1,3 +1,5 @@
+import debug from '../util/debug';
+
 export default function anim(state = {
   tickerStarted: false,
   lastFrameTime: null
@@ -8,9 +10,15 @@ export default function anim(state = {
       lastFrameTime: Date.now()
     });
   }
-  if(action.type === 'TIME_TICK') {
+  if(action.type === 'STOP_TICKER') {
     return Object.assign({}, state, {
-      lastFrameTime: Date.now()
+      tickerStarted: false
+    });
+  }
+  if(action.type === 'TIME_TICK') {
+    debug('TIME_TICK');
+    return Object.assign({}, state, {
+      lastFrameTime: action.time || Date.now()
     });
   }
   return state;

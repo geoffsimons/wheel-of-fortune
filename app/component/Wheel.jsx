@@ -4,13 +4,15 @@ import debug from '../util/debug';
 
 // TODO: Build wedges from prizes array.
 function Wheel(props) {
-  const trans = {
+  const style = {
     transform: `rotate(${props.angle}deg)`,
-    transformOrigin: '100px 100px'
+    transformOrigin: '100px 100px',
+    // border: '1px solid black',
+    width: '200px' // Prevents a weird z-index overlap
   };
-  debug('TRANS:', trans);
+  // debug('TRANS:', trans);
   return(
-    <div id="wheel" style={trans}>
+    <div id="wheel" style={style}>
       <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <clipPath id="myClip">

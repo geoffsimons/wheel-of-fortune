@@ -6,6 +6,7 @@ import * as Actions from '../action';
 import App from '../component';
 import debug from '../util/debug';
 
+// TODO: App is basically the new AppContainer and App rolled together.
 class AppContainer extends Component {
   // startAnim() {
   //   let ticker = () => {
@@ -28,7 +29,7 @@ AppContainer.propTypes = {
 }
 
 function mapStateToProps(state) {
-  debug('mapStateToProps:', state);
+  // debug('mapStateToProps:', state);
   return {};
 }
 

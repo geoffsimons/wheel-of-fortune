@@ -28,16 +28,16 @@ export default function wheel(state = {
       velocity: action.velocity
     });
   }
-  if(action.type === 'TIME_TICK') {
-    const dt = Date.now() - state.lastFrameTime;
-    // dv is change in velocity, as measured in degress per second
-    const dv = state.pressTime ? 20 : -10; // Power from spin, or friction
-    const velocity = state.velocity + (dv * dt / 1000);
-
-    return Object.assign({}, state, {
-      angle: state.angle + (state.velocity * dt), // dAngle
-      velocity: clamp(velocity, 0, MAX_VELOCITY)
-    });
-  }
+  // if(action.type === 'TIME_TICK') {
+  //   const dt = Date.now() - state.lastFrameTime;
+  //   // dv is change in velocity, as measured in degress per second
+  //   const dv = state.pressTime ? 20 : -10; // Power from spin, or friction
+  //   const velocity = state.velocity + (dv * dt / 1000);
+  //
+  //   return Object.assign({}, state, {
+  //     angle: state.angle + (state.velocity * dt), // dAngle
+  //     velocity: clamp(velocity, 0, MAX_VELOCITY)
+  //   });
+  // }
   return state;
 }
