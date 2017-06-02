@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import debug from 'debug';
+import debug from '../util/debug';
 
 // TODO: Build wedges from prizes array.
 function Wheel(props) {

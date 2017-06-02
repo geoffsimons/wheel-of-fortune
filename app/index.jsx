@@ -6,10 +6,12 @@ import { createStore } from 'redux';
 // import { syncHistoryWithStore } from 'react-router-redux';
 
 import AppContainer from './container/AppContainer';
-import reducer from './reducer';
+// import reducer from './reducer';
+import configureStore from './config-store';
 
-// TODO Apply thunk middleware
-const store = createStore(reducer);
+// TODO Apply thunk middleware?
+// const store = createStore(reducer);
+const store = configureStore();
 // const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(

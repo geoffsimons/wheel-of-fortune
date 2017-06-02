@@ -14,14 +14,12 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
-  resolve {
-    alias: { debug: './app/util/debug' }
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {
+    // alias: { debug: './app/util/debug.js' }, //NOT WORKING
     extensions: ['.js', '.jsx']
   },
   module: {
