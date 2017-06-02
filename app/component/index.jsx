@@ -17,7 +17,8 @@ class App extends Component {
 
       // TODO: There is a race condition where we don't loop.
       if(this.props.tickerStarted) {
-        setTimeout(ticker, 250);
+        // setTimeout(ticker, 33);
+        window.requestAnimationFrame(ticker);
         // TODO: if v <= 0, dispatch(stopTicker());
         // if(this.props.velocity > 0) {
         // }
@@ -25,7 +26,7 @@ class App extends Component {
     };
     if(!this.props.tickerStarted) {
       dispatch(startTicker());
-      setTimeout(ticker, 100);
+      setTimeout(ticker, 10);
     }
   }
   render() {
