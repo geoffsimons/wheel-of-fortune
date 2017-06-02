@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Wheel from './wheel';
 import Controls from './Controls';
 import Meter from './lib/Meter';
-import { updateWheel, tickTime, startTicker, stopTicker } from '../action';
+import { updateWheel, tickTime, startTicker, stopTicker, pressSpin, releaseSpin } from '../action';
 import debug from '../util/debug';
 
 class App extends Component {
@@ -15,7 +15,6 @@ class App extends Component {
       debug('ticker', this.props.tickerStarted);
       dispatch(tickTime());
 
-      // TODO: There is a race condition where we don't loop.
       if(this.props.tickerStarted) {
         if(this.props.velocity <= 0) {
           dispatch(stopTicker());
@@ -23,15 +22,19 @@ class App extends Component {
 
         // setTimeout(ticker, 33);
         window.requestAnimationFrame(ticker);
-        // TODO: if v <= 0, dispatch(stopTicker());
-        // if(this.props.velocity > 0) {
-        // }
       }
     };
     if(!this.props.tickerStarted) {
       dispatch(startTicker());
-      setTimeout(ticker, 10);
+      // TODO: There is a race condition where we don't loop.
+      setTimeout(ticker, 10); // This is kind of a hack.
     }
+  }
+  startSpin() {
+    debug('startSpin');
+    const { dispatch } = this.props;
+    dispatch(pressSpin());
+    ::this.startAnim();
   }
   render() {
     const { dispatch, angle, velocity, tickerStarted } = this.props;
@@ -46,6 +49,10 @@ class App extends Component {
           <button onClick={() => dispatch(stopTicker())}>STOP</button> :
           <button onClick={::this.startAnim}>ANIM</button>
         }
+        <button
+          onMouseDown={::this.startSpin}
+          onMouseUp={() => dispatch(releaseSpin())}
+          >SPIN</button>
       </div>
     )
   }
@@ -59,7 +66,7 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   const { wheel, anim } = state;
-  debug('App.mapStateToProps:', wheel);
+  // debug('App.mapStateToProps:', wheel);
   return {
     angle: wheel.angle,
     velocity: wheel.velocity,

@@ -4,12 +4,12 @@ export default function wheel(state = {
   // prizes: [] // Should we have a prizes array in the state?
   pressTime: null,
 }, action) {
-  if(action.type === 'SPIN_PRESS') {
+  if(action.type === 'PRESS_SPIN') {
     return Object.assign({}, state, {
       pressTime: Date.now()
     });
   }
-  if(action.type === 'SPIN_RELEASE') {
+  if(action.type === 'RELEASE_SPIN') {
     return Object.assign({}, state, {
       pressTime: null
     });

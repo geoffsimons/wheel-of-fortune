@@ -1,8 +1,8 @@
 import debug from '../util/debug';
 
 const MAX_VELOCITY = 360; // degrees per second
-const ACCELERATION = 50;  // % per second per second
-const FRICTION     = -10; // % per second per second
+const ACCELERATION = 100;  // % per second per second
+const FRICTION     = -50; // % per second per second
 
 function clamp(x, min, max) {
   if(x < min) return min;
@@ -43,7 +43,10 @@ export function tickTime() {
                  ACCELERATION * dt :
                  FRICTION * dt;
       debug('dv:', dv);
-      dispatch(updateWheel(wheel.angle + da, wheel.velocity + dv));
+      dispatch(updateWheel(
+        wheel.angle + da,
+        clamp(wheel.velocity + dv, 0, 100)
+      ));
     }
     dispatch({ type: 'TIME_TICK', time: t });
   };
