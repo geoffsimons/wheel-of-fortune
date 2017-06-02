@@ -51,7 +51,9 @@ class App extends Component {
         }
         <button
           onMouseDown={::this.startSpin}
+          onTouchStart={::this.startSpin}
           onMouseUp={() => dispatch(releaseSpin())}
+          onTouchEnd={() => dispatch(releaseSpin())}
           >SPIN</button>
       </div>
     )
