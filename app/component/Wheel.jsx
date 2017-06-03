@@ -26,46 +26,6 @@ function Wheel(props) {
        <Wedge bgcolor="#e5e059" label="250" angle={30} offset={288} />
      </div>
   );
-  // return(
-  //   <div id="wheel" style={style}>
-  //     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-  //       <defs>
-  //         <clipPath id="myClip">
-  //           <polygon points={points} />
-  //         </clipPath>
-  //       </defs>
-  //
-  //       <circle fill="#69ff47" cx="100" cy="100" r="100"
-  //               clipPath="url(#myClip)"/>
-  //       <text x="195" y="113" textAnchor="end"
-  //               fontFamily="Arial" fontSize="35" stroke="#000">150</text>
-  //       <circle fill="#ff00c3" cx="100" cy="100" r="100"
-  //               clipPath="url(#myClip)"
-  //               transform="rotate(90, 100, 100)"/>
-  //       <text x="195" y="113" textAnchor="end"
-  //               fontFamily="Arial" fontSize="35" stroke="#000"
-  //               transform="rotate(90, 100,100)">100</text>
-  //       <circle fill="#00faff" cx="100" cy="100" r="100"
-  //               clipPath="url(#myClip)"
-  //               transform="rotate(180, 100, 100)"/>
-  //       <text x="195" y="113" textAnchor="end"
-  //               fontFamily="Arial" fontSize="35" stroke="#000"
-  //               transform="rotate(180, 100,100)">200</text>
-  //       <circle fill="#0e004c" cx="100" cy="100" r="100"
-  //               clipPath="url(#myClip)"
-  //               transform="rotate(180, 100, 100)"/>
-  //       <text x="195" y="113" textAnchor="end"
-  //               fontFamily="Arial" fontSize="35" stroke="#000"
-  //               transform="rotate(180, 100,100)">250</text>
-  //       <circle fill="#a100ff" cx="100" cy="100" r="100"
-  //               clipPath="url(#myClip)"
-  //               transform="rotate(270, 100, 100)"/>
-  //       <text x="195" y="113" textAnchor="end"
-  //               fontFamily="Arial" fontSize="35" stroke="#000"
-  //               transform="rotate(270, 100,100)">50</text>
-  //     </svg>
-  //   </div>
-  // );
 }
 
 Wheel.propTypes = {
