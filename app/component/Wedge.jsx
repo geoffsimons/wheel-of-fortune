@@ -6,9 +6,16 @@ function Wedge(props) {
   const h = Math.floor(100 * Math.tan(angle * Math.PI / 180));
   const points = `100,100 200,${100-h} 200,${100+h}`;
   const rot = `rotate(${offset}, 100, 100)`;
+  const style = {
+    position: 'absolute',
+    top: 0,
+    left: 0
+  };
 
   return(
-    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <svg width="200" height="200"
+      style={style}
+      xmlns="http://www.w3.org/2000/svg">
       <defs>
         <clipPath id="myClip">
           <polygon points={points} />
