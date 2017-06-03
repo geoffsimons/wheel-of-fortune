@@ -42,6 +42,7 @@ class App extends Component {
       <div>
         <Wheel angle={angle} />
         <Meter value={velocity} />
+        <div>{angle}</div>
         <button
           onMouseDown={::this.startSpin}
           onTouchStart={::this.startSpin}
