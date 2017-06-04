@@ -90,11 +90,6 @@ function Wheel(props) {
      </div>
   );
 }
-// <Wedge bgcolor="#975bc1" label="100" angle={30} offset={0} />
-// <Wedge bgcolor="#b23caa" label="50"  angle={30} offset={72} />
-// <Wedge bgcolor="#41bf73" label="150" angle={30} offset={144} />
-// <Wedge bgcolor="#443aad" label="200" angle={30} offset={216} />
-// <Wedge bgcolor="#e5e059" label="250" angle={30} offset={288} />
 
 Wheel.propTypes = {
   prizes: PropTypes.array,

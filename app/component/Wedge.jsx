@@ -13,8 +13,6 @@ function Wedge(props) {
     x: cx + r * Math.cos(angle * Math.PI / 180),
     y: cy + r * Math.sin(angle * Math.PI / 180)
   };
-  // const h = Math.min(100, Math.floor(100 * Math.tan(angle * Math.PI / 90)));
-  // const points = `100,100 200,${100-h} 200,${100+h}`;
   const points = `${cx},${cy} ${p.x},${p.y} ${cx+r},${cy+r} ${cx+r},${cy}`;
   const rot = `rotate(${offset}, 100, 100)`;
   const style = {
@@ -50,7 +48,6 @@ function Wedge(props) {
   )
 }
 // <polygon points={points} />
-
 
 Wedge.propTypes = {
   color: PropTypes.string,
