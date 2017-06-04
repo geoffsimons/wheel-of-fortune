@@ -4,18 +4,18 @@ import debug from '../util/debug';
 // const debug = console.log;
 import Wedge from './Wedge';
 
-// TODO: Build wedges from prizes array.
+// TODO: Accept prop.prizes.
 // TODO: Accept a prop for radius, or for width & height.
 function Wheel(props) {
   const prizes = [
     {
-      color: '#975bc1',
+      color: '#2d34ff',
       weight: 2,
       label: '100'
     },
     {
       color: '#b23caa',
-      weight: 3,
+      weight: 2.5,
       label: '50'
     },
     {
@@ -25,27 +25,27 @@ function Wheel(props) {
     },
     {
       color: '#b23caa',
-      weight: 3,
+      weight: 2.5,
       label: '50'
     },
     {
-      color: '#443aad',
+      color: '#ed5e0b',
       weight: 2,
       label: '150'
     },
     {
       color: '#b23caa',
-      weight: 3,
+      weight: 2.5,
       label: '50'
     },
     {
-      color: '#975bc1',
+      color: '#2d34ff',
       weight: 2,
       label: '100'
     },
     {
       color: '#b23caa',
-      weight: 3,
+      weight: 2.5,
       label: '50'
     },
     {
@@ -55,7 +55,7 @@ function Wheel(props) {
     },
     {
       color: '#b23caa',
-      weight: 3,
+      weight: 2.5,
       label: '50'
     },
   ];
