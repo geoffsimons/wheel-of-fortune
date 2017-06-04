@@ -37,10 +37,20 @@ class App extends Component {
     dispatch(pressSpin());
     ::this.startAnim();
   }
+  // TODO: html,body need to be full size.
+  // TODO: Scale wheel to fit screen.
   render() {
     const { dispatch, angle, velocity, spins, tickerStarted } = this.props;
     return(
-      <div>
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          border: '1px solid green'
+        }}
+        onMouseUp={() => dispatch(releaseSpin())}
+        onTouchEnd={() => dispatch(releaseSpin())}
+        >
         <div style={{
             padding: '5%',
             margin: '0 auto',
@@ -59,8 +69,6 @@ class App extends Component {
           <button
             onMouseDown={::this.startSpin}
             onTouchStart={::this.startSpin}
-            onMouseUp={() => dispatch(releaseSpin())}
-            onTouchEnd={() => dispatch(releaseSpin())}
             style={{
               width: '100px',
               transform: 'translateX(-50%)'

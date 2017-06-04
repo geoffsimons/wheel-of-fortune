@@ -23,6 +23,12 @@ export function pressSpin() {
 }
 
 export function releaseSpin() {
+  // TODO: If wheel.velocity < MIN_VELOCITY, prevent tiny spin
+  //       However, it's also possible to re-press and release
+  //       which would look the same. We should probably
+  //       set a timestamp for when the spinStarted. Then we
+  //       can use that to determine if a spin is too short.
+  //       We can also disable the spin button after release.
   return { type: 'RELEASE_SPIN' };
 }
 
