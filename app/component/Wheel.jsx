@@ -10,47 +10,52 @@ function Wheel(props) {
   const prizes = [
     {
       color: '#975bc1',
-      weight: 1,
+      weight: 2,
       label: '100'
     },
     {
       color: '#b23caa',
-      weight: 1,
+      weight: 3,
       label: '50'
     },
     {
       color: '#41bf73',
-      weight: 1,
+      weight: 1.5,
       label: '250'
     },
     {
       color: '#b23caa',
-      weight: 1,
+      weight: 3,
       label: '50'
     },
     {
       color: '#443aad',
-      weight: 1,
+      weight: 2,
       label: '150'
     },
     {
+      color: '#b23caa',
+      weight: 3,
+      label: '50'
+    },
+    {
       color: '#975bc1',
-      weight: 1,
+      weight: 2,
       label: '100'
     },
     {
       color: '#b23caa',
-      weight: 1,
+      weight: 3,
       label: '50'
     },
     {
       color: '#e5e059',
-      weight: 1,
+      weight: 1.5,
       label: '200'
     },
     {
       color: '#b23caa',
-      weight: 1,
+      weight: 3,
       label: '50'
     },
   ];

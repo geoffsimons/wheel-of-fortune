@@ -36,12 +36,16 @@ function Wedge(props) {
           <polygon points={points} />
         </clipPath>
       </defs>
-      <circle fill={bgcolor} cx="100" cy="100" r="100"
-              clipPath="url(#myClip)"/>
-      <text x="195" y="113" textAnchor="end"
-              fontFamily="Arial" fontSize="35"
-              stroke="#000" fill={color || '#000'}
-              transform={`rotate(${angle/2}, ${cx},${cy})`}>{label}</text>
+      <circle
+        cx="100" cy="100" r="100"
+        fill={bgcolor}
+        clipPath="url(#myClip)"/>
+      <text
+        x="197" y="110"
+        textAnchor="end"
+        fontFamily="Arial" fontSize="30"
+        stroke="#000" fill={color || '#000'}
+        transform={`rotate(${angle/2}, ${cx},${cy})`}>{label}</text>
     </svg>
   )
 }
