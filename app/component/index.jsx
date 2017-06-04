@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Wheel from './wheel';
 import Controls from './Controls';
 import Meter from './lib/Meter';
-import { updateWheel, tickTime, startTicker, stopTicker, pressSpin, releaseSpin } from '../action';
+import { updateWheel, tickTime, startTicker, stopTicker, pressSpin, releaseSpin, completeSpin } from '../action';
 import debug from '../util/debug';
 
 class App extends Component {
@@ -18,6 +18,7 @@ class App extends Component {
       if(this.props.tickerStarted) {
         if(this.props.velocity <= 0) {
           dispatch(stopTicker());
+          dispatch(completeSpin());
         }
 
         // setTimeout(ticker, 33);
@@ -37,7 +38,7 @@ class App extends Component {
     ::this.startAnim();
   }
   render() {
-    const { dispatch, angle, velocity, tickerStarted } = this.props;
+    const { dispatch, angle, velocity, spins, tickerStarted } = this.props;
     return(
       <div>
         <div style={{
@@ -66,6 +67,20 @@ class App extends Component {
             }}
             >SPIN</button>
         </div>
+        <div
+          style={{
+            height: '200px',
+            width: '100%',
+            border: '1px solid blue',
+            overflow: 'scroll'
+          }}
+          >
+          {
+            spins.map((spin, index) => {
+              return <div key={index}>{spin.angle}</div>;
+            })
+          }
+        </div>
       </div>
     )
   }
@@ -83,6 +98,7 @@ class App extends Component {
 App.propTypes = {
   angle: PropTypes.number,
   velocity: PropTypes.number,
+  spins: PropTypes.array,
   tickerStarted: PropTypes.bool
 };
 
@@ -92,6 +108,7 @@ function mapStateToProps(state) {
   return {
     angle: wheel.angle,
     velocity: wheel.velocity,
+    spins: wheel.spins,
     tickerStarted: anim.tickerStarted
   };
 }

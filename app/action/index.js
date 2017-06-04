@@ -26,6 +26,18 @@ export function releaseSpin() {
   return { type: 'RELEASE_SPIN' };
 }
 
+export function completeSpin() {
+  return (dispatch, getState) => {
+    const { wheel } = getState();
+    // TODO: How do we know what wedge the wheel stopped on?
+    const { angle } = wheel;
+    dispatch({
+      type: 'COMPLETE_SPIN',
+      spin: { angle }
+    });
+  };
+}
+
 export function tickTime() {
   return (dispatch, getState) => {
     const { wheel, anim } = getState();
