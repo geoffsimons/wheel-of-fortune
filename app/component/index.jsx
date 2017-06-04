@@ -40,19 +40,38 @@ class App extends Component {
     const { dispatch, angle, velocity, tickerStarted } = this.props;
     return(
       <div>
-        <Wheel angle={angle} />
-        <Meter value={velocity} />
-        <div>{angle}</div>
-        <button
-          onMouseDown={::this.startSpin}
-          onTouchStart={::this.startSpin}
-          onMouseUp={() => dispatch(releaseSpin())}
-          onTouchEnd={() => dispatch(releaseSpin())}
-          >SPIN</button>
+        <div style={{
+            padding: '5%',
+            margin: '0 auto',
+            width: '200px'
+          }}>
+          <Wheel angle={angle} />
+        </div>
+
+        <div
+          style={{
+            padding: '5%',
+            width: '0',
+            margin: '0 auto'
+          }}
+          >
+          <button
+            onMouseDown={::this.startSpin}
+            onTouchStart={::this.startSpin}
+            onMouseUp={() => dispatch(releaseSpin())}
+            onTouchEnd={() => dispatch(releaseSpin())}
+            style={{
+              width: '100px',
+              transform: 'translateX(-50%)'
+            }}
+            >SPIN</button>
+        </div>
       </div>
     )
   }
 }
+// <Meter value={velocity} />
+// <div>{angle}</div>
 // <Controls updateWheel={(ang, vel) => dispatch(updateWheel(ang, vel))}/>
 //   <button onClick={() => dispatch(tickTime())}>TICK</button>
 //   {
