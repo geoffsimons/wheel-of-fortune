@@ -48,6 +48,11 @@ function Wheel(props) {
       weight: 1,
       label: '200'
     },
+    {
+      color: '#b23caa',
+      weight: 1,
+      label: '50'
+    },
   ];
   const style = {
     transform: `rotate(${props.angle}deg)`,
