@@ -1,5 +1,47 @@
-html, body, #root {
+html, body, #root, .event-skin {
   height: 100%;
   width: 100%;
   margin: 0;
+}
+
+.app {
+  border: 1px solid green;
+  padding: 5%;
+  width: 240px;
+  margin: 0 auto;
+}
+
+// For now, dumping everything in our base
+.num-spins {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+}
+
+.score {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  float: right;
+}
+
+.wheel {
+  padding: 5%;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.btn-container {
+  padding: 5%;
+  width: 0;
+  margin: 0 auto;
+}
+
+.spin-log {
+  height: 200px;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid blue;
+  overflow: scroll;
 }

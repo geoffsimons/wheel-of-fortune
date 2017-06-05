@@ -44,69 +44,37 @@ class App extends Component {
   render() {
     const { dispatch, angle, velocity, spins, tickerStarted, numSpins, score } = this.props;
     return(
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          border: '1px solid green'
-        }}
+      <div className="event-skin"
         onMouseUp={() => dispatch(releaseSpin())}
         onTouchEnd={() => dispatch(releaseSpin())}
         >
-        <div style={{
-            border: '1px solid black',
-            padding: '5px',
-            margin: '5px',
-            float: 'left'
-          }}>
-          {numSpins}
-        </div>
-        <div style={{
-            border: '1px solid black',
-            padding: '5px',
-            margin: '5px',
-            float: 'right'
-          }}>
-          {score}
-        </div>
-        <div style={{
-            padding: '5%',
-            margin: '0 auto',
-            width: '200px'
-          }}>
+        <div className="app">
+          <div className="num-spins">
+            {numSpins}
+          </div>
+          <div className="score">
+            {score}
+          </div>
           <Wheel angle={angle} />
-        </div>
 
-        <div
-          style={{
-            padding: '5%',
-            width: '0',
-            margin: '0 auto'
-          }}
-          >
-          {
-            numSpins <= 0 ?
-            <StartButton handleClick={() => dispatch(startGame())} /> :
-            <SpinButton
-              startSpin={::this.startSpin}
-              isSpinning={velocity > 0 ? true : false}
-              velocity={velocity}
-              />
-          }
-        </div>
-        <div
-          style={{
-            height: '200px',
-            width: '100%',
-            border: '1px solid blue',
-            overflow: 'scroll'
-          }}
-          >
-          {
-            spins.map((spin, index) => {
-              return <div key={index}>{Math.round(spin.angle)}: {spin.prize.label}</div>;
-            })
-          }
+          <div className="btn-container">
+            {
+              numSpins <= 0 ?
+              <StartButton handleClick={() => dispatch(startGame())} /> :
+              <SpinButton
+                startSpin={::this.startSpin}
+                isSpinning={velocity > 0 ? true : false}
+                velocity={velocity}
+                />
+            }
+          </div>
+          <div className="spin-log">
+            {
+              spins.map((spin, index) => {
+                return <div key={index}>{Math.round(spin.angle)}: {spin.prize.label}</div>;
+              })
+            }
+          </div>
         </div>
       </div>
     )

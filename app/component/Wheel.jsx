@@ -26,9 +26,11 @@ function Wheel(props) {
   debug('PRIZES:', prizes);
   debug('WEDGES:', wedges);
   return(
-     <div id="wheel" style={style}>
-       {wedges}
-     </div>
+    <div className="wheel">
+      <div style={style}>
+        {wedges}
+      </div>
+    </div>
   );
 }
 
