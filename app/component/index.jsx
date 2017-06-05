@@ -85,7 +85,7 @@ class App extends Component {
           >
           {
             spins.map((spin, index) => {
-              return <div key={index}>{spin.angle}</div>;
+              return <div key={index}>{Math.round(spin.angle)}: {spin.prize.label}</div>;
             })
           }
         </div>

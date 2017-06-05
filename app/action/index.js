@@ -1,3 +1,4 @@
+import config from '../config/wheel';
 import debug from '../util/debug';
 
 const MAX_VELOCITY = 2000; // degrees per second
@@ -37,9 +38,12 @@ export function completeSpin() {
     const { wheel } = getState();
     // TODO: How do we know what wedge the wheel stopped on?
     const { angle } = wheel;
+    const prize = config.getPrize(angle); // TODO += 270 % 360?
+    console.log('CONFIG:', config);
+    console.log('PRIZE:', prize);
     dispatch({
       type: 'COMPLETE_SPIN',
-      spin: { angle }
+      spin: { angle, prize }
     });
   };
 }
