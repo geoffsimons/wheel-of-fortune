@@ -2,7 +2,7 @@ import config from '../config/wheel';
 import debug from '../util/debug';
 
 const MAX_VELOCITY = 2000; // degrees per second
-const ACCELERATION = 100;  // % per second per second
+const ACCELERATION = 200;  // % per second per second
 const FRICTION     = -50; // % per second per second
 
 function clamp(x, min, max) {
