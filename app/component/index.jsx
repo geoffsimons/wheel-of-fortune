@@ -86,6 +86,7 @@ class App extends Component {
           <SpinButton
             startSpin={::this.startSpin}
             isSpinning={velocity > 0 ? true : false}
+            velocity={velocity}
             />
         </div>
         <div
