@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Wheel from './wheel';
 import Controls from './Controls';
 import Meter from './lib/Meter';
+import SpinButton from './SpinButton';
 import { updateWheel, tickTime, startTicker, stopTicker, pressSpin, releaseSpin, completeSpin } from '../action';
 import debug from '../util/debug';
 
@@ -82,14 +83,10 @@ class App extends Component {
             margin: '0 auto'
           }}
           >
-          <button
-            onMouseDown={::this.startSpin}
-            onTouchStart={::this.startSpin}
-            style={{
-              width: '100px',
-              transform: 'translateX(-50%)'
-            }}
-            >SPIN</button>
+          <SpinButton
+            startSpin={::this.startSpin}
+            isSpinning={velocity > 0 ? true : false}
+            />
         </div>
         <div
           style={{
@@ -109,6 +106,15 @@ class App extends Component {
     )
   }
 }
+// <button
+//   onMouseDown={::this.startSpin}
+//   onTouchStart={::this.startSpin}
+//   disabled={velocity > 0 ? true : false}
+//   style={{
+//     width: '100px',
+//     transform: 'translateX(-50%)'
+//   }}
+//   >SPIN</button>
 // <Meter value={velocity} />
 // <div>{angle}</div>
 // <Controls updateWheel={(ang, vel) => dispatch(updateWheel(ang, vel))}/>
