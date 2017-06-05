@@ -1,5 +1,3 @@
-const debug = console.log;
-
 export default function wheel(state = {
   angle: 0,
   velocity: 0,
@@ -18,7 +16,6 @@ export default function wheel(state = {
     });
   }
   if(action.type === 'COMPLETE_SPIN') {
-    debug('COMPLETE_SPIN', action.spin);
     return Object.assign({}, state, {
       spins: [action.spin, ...state.spins]
     });

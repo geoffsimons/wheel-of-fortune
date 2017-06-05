@@ -58,8 +58,8 @@ export function completeSpin() {
     // TODO: How do we know what wedge the wheel stopped on?
     const { angle } = wheel;
     const prize = config.getPrize(angle); // TODO += 270 % 360?
-    console.log('CONFIG:', config);
-    console.log('PRIZE:', prize);
+    // console.log('CONFIG:', config);
+    // console.log('PRIZE:', prize);
     dispatch({
       type: 'COMPLETE_SPIN',
       spin: { angle, prize }

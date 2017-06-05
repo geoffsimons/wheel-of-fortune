@@ -72,7 +72,6 @@ wheel.prizes.forEach(p => {
 wheel.getPrize = function(a) {
   a = 360 + 270 - a;
   a = a % 360;
-  console.log('a:', a);
   for(let i = 0; i < wheel.prizes.length; i++) {
     const prize = wheel.prizes[i];
     const { angle, offset } = prize;
