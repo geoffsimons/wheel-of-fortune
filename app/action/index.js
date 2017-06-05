@@ -11,6 +11,18 @@ function clamp(x, min, max) {
   return x;
 }
 
+export function useSpin() {
+  return { type: 'USE_SPIN' };
+}
+
+export function addPoints(points) {
+  return {
+    type: 'ADD_POINTS',
+    points
+  }
+}
+
+// TODO: Refactor actions into separate models.
 export function startTicker() {
   return { type: 'START_TICKER' };
 }
@@ -20,7 +32,10 @@ export function stopTicker() {
 }
 
 export function pressSpin() {
-  return { type: 'PRESS_SPIN' };
+  return (dispatch) => {
+    dispatch({ type: 'PRESS_SPIN' });
+    dispatch({ type: 'USE_SPIN' });
+  }
 }
 
 export function releaseSpin() {
@@ -45,6 +60,11 @@ export function completeSpin() {
       type: 'COMPLETE_SPIN',
       spin: { angle, prize }
     });
+    // TODO: Change prize model to have a value or points.
+    // TODO: Some wedges might have prizes that do something else.
+    //        This would be the place to execute that method.
+    // prize.award();
+    dispatch(addPoints(Number(prize.label)));
   };
 }
 

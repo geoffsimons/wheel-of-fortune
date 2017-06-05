@@ -40,7 +40,7 @@ class App extends Component {
   // TODO: html,body need to be full size.
   // TODO: Scale wheel to fit screen.
   render() {
-    const { dispatch, angle, velocity, spins, tickerStarted } = this.props;
+    const { dispatch, angle, velocity, spins, tickerStarted, numSpins, score } = this.props;
     return(
       <div
         style={{
@@ -51,6 +51,22 @@ class App extends Component {
         onMouseUp={() => dispatch(releaseSpin())}
         onTouchEnd={() => dispatch(releaseSpin())}
         >
+        <div style={{
+            border: '1px solid black',
+            padding: '5px',
+            margin: '5px',
+            float: 'left'
+          }}>
+          {numSpins}
+        </div>
+        <div style={{
+            border: '1px solid black',
+            padding: '5px',
+            margin: '5px',
+            float: 'right'
+          }}>
+          {score}
+        </div>
         <div style={{
             padding: '5%',
             margin: '0 auto',
@@ -107,17 +123,21 @@ App.propTypes = {
   angle: PropTypes.number,
   velocity: PropTypes.number,
   spins: PropTypes.array,
-  tickerStarted: PropTypes.bool
+  tickerStarted: PropTypes.bool,
+  score: PropTypes.number,
+  numSpins: PropTypes.number
 };
 
 function mapStateToProps(state) {
-  const { wheel, anim } = state;
+  const { wheel, anim, player } = state;
   // debug('App.mapStateToProps:', wheel);
   return {
     angle: wheel.angle,
     velocity: wheel.velocity,
     spins: wheel.spins,
-    tickerStarted: anim.tickerStarted
+    tickerStarted: anim.tickerStarted,
+    score: player.score,
+    numSpins: player.numSpins
   };
 }
 
