@@ -28,12 +28,12 @@ function SpinButton(props) {
           width: Math.round(velocity) +'%',
           height: '100%',
           position: 'absolute',
-          background: '#0c0'
+          background: '#00f935'
         }}>
       </div>
       SPIN
     </div>
-  )
+  );
 }
 
 SpinButton.propTypes = {

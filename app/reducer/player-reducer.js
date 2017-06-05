@@ -1,7 +1,13 @@
 export default function player(state = {
-  numSpins: 10,
+  numSpins: 0,
   score: 0
 }, action) {
+  if(action.type === 'START_GAME') {
+    return Object.assign({}, state, {
+      numSpins: 10,
+      score: 0
+    });
+  }
   if(action.type === 'USE_SPIN') {
     return Object.assign({}, state, {
       numSpins: state.numSpins - 1

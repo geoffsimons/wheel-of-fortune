@@ -5,7 +5,8 @@ import Wheel from './wheel';
 import Controls from './Controls';
 import Meter from './lib/Meter';
 import SpinButton from './SpinButton';
-import { updateWheel, tickTime, startTicker, stopTicker, pressSpin, releaseSpin, completeSpin } from '../action';
+import StartButton from './StartButton';
+import { updateWheel, tickTime, startTicker, stopTicker, pressSpin, releaseSpin, completeSpin, startGame } from '../action';
 import debug from '../util/debug';
 
 class App extends Component {
@@ -83,11 +84,15 @@ class App extends Component {
             margin: '0 auto'
           }}
           >
-          <SpinButton
-            startSpin={::this.startSpin}
-            isSpinning={velocity > 0 ? true : false}
-            velocity={velocity}
-            />
+          {
+            numSpins <= 0 ?
+            <StartButton handleClick={() => dispatch(startGame())} /> :
+            <SpinButton
+              startSpin={::this.startSpin}
+              isSpinning={velocity > 0 ? true : false}
+              velocity={velocity}
+              />
+          }
         </div>
         <div
           style={{

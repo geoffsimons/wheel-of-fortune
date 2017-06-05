@@ -11,6 +11,10 @@ function clamp(x, min, max) {
   return x;
 }
 
+export function startGame() {
+  return { type: 'START_GAME' };
+}
+
 export function useSpin() {
   return { type: 'USE_SPIN' };
 }
