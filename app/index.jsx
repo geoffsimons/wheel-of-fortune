@@ -8,6 +8,7 @@ import { createStore } from 'redux';
 import AppContainer from './container/AppContainer';
 // import reducer from './reducer';
 import configureStore from './config-store';
+import './style/index.scss';
 
 // TODO Apply thunk middleware?
 // const store = createStore(reducer);
