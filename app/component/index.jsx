@@ -69,6 +69,7 @@ class App extends Component {
               <label>SCORE</label>
             </div>
             <Wheel angle={angle} />
+            <div className="btn-container">
             {
               numSpins <= 0 && velocity <= 0 ?
               <StartButton handleClick={::this.startClicked} /> :
@@ -78,6 +79,7 @@ class App extends Component {
                 velocity={velocity}
                 />
             }
+            </div>
           </div>
         </main>
         <footer>Copyright &copy; 2017 Geoff Simons</footer>

@@ -10,14 +10,15 @@ function StartButton(props) {
   const bg = '#0c0';
   // TODO: Should we use onClick, or the 2 events below?
   return(
-    <div
-      onMouseUp={handleClick}
-      onTouchEnd={handleClick}
+    <button
+      onClick={handleClick}
       className="btn pressable">
       <label>START</label>
-    </div>
+    </button>
   );
 }
+// onMouseUp={handleClick}
+// onTouchEnd={handleClick}
 // onMouseDown={handleClick}
 // onTouchStart={handleClick}
 
