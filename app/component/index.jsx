@@ -41,7 +41,6 @@ class App extends Component {
   }
   startClicked(evt) {
     evt.preventDefault();
-    alert('Starting game');
     this.props.dispatch(startGame());
   }
   // TODO: html,body need to be full size.
