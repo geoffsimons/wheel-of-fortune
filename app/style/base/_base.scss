@@ -3,6 +3,7 @@ html, body, #root, .event-skin {
   width: 100%;
   margin: 0;
   font-family: Helvetica, sans-serif;
+  user-select: none;
 }
 
 $primary: #f96b00;
