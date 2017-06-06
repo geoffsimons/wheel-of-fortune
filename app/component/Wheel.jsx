@@ -11,12 +11,7 @@ debug('CONFIG:', config);
 // TODO: Accept a prop for radius, or for width & height.
 function Wheel(props) {
   const style = {
-    transform: `rotate(${props.angle}deg)`,
-    transformOrigin: '100px 100px',
-    position: 'relative',
-    // border: '1px solid black',
-    height: '200px',
-    width: '200px' // Prevents a weird z-index overlap
+    transform: `rotate(${props.angle}deg)`
   };
   const { prizes } = config;
   // debug('TRANS:', trans);
@@ -27,7 +22,8 @@ function Wheel(props) {
   debug('WEDGES:', wedges);
   return(
     <div className="wheel">
-      <div style={style}>
+      <div className="wedges"
+        style={style}>
         {wedges}
       </div>
     </div>

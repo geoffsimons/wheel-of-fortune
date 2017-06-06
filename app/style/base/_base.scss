@@ -14,7 +14,7 @@ $blue: #004ff9;
 
 header {
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   background: linear-gradient($green, $green * 0.75);
 
   .title {
@@ -45,12 +45,10 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  // border: 1px solid green;
   border-width: 4px;
   border-style: outset;
   border-color: $green;
-  border-radius: 5px;
-  // padding: 5%;
+  border-radius: 10px;
   padding-bottom: 15px;
   width: 240px;
 }
@@ -63,25 +61,29 @@ $wall: 2px solid $green;
   width: 50px;
   text-align: center;
   background: $white * 0.97;
+  // color: $green;
+  // text-shadow: 1px 1px 1px $green*0.1;
   color: $green * 0.4;
+  text-shadow: 0px 0px 2px $green;
   font-size: 1.2rem;
   label {
     display: block;
     margin-top: 0.2rem;
     font-size: 0.6rem;
+    text-shadow: 0px 0px 0px;
   }
 }
 
 .num-spins {
   @extend .info-box;
   border-right: $wall;
-  border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 10px;
   float: left;
 }
 .score {
   @extend .info-box;
   border-left: $wall;
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 10px;
   float: right;
 }
 
@@ -91,6 +93,13 @@ $wall: 2px solid $green;
   padding: 5%;
   margin: 30px auto;
   width: 200px;
+}
+
+.wedges {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  transform-origin: 100px 100px;
 }
 
 .btn-container {

@@ -26,9 +26,10 @@ function Wedge(props) {
   debug('POINTS:', points);
   debug('ROT:', rot);
   return(
-    <svg width="200" height="200"
+    <svg xmlns="http://www.w3.org/2000/svg"
+      width="200" height="200"
       style={style}
-      xmlns="http://www.w3.org/2000/svg">
+      >
       <defs>
         <clipPath id="myClip">
           <polygon points={points} />
