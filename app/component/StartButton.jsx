@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// TODO: Seems a little weird to make our own button.
+// TODO: Button should track pressed state and only fire handleClick
+//       when pressed & event detected.
 function StartButton(props) {
   const { handleClick } = props;
   const fg = '#fff';
@@ -8,7 +11,8 @@ function StartButton(props) {
   // TODO: Should we use onClick, or the 2 events below?
   return(
     <div
-      onClick={handleClick}
+      onMouseUp={handleClick}
+      onTouchEnd={handleClick}
       className="btn pressable">
       <label>START</label>
     </div>
@@ -16,16 +20,6 @@ function StartButton(props) {
 }
 // onMouseDown={handleClick}
 // onTouchStart={handleClick}
-// style={{
-//   borderRadius: '5px',
-//   width: '100px',
-//   height: '20px',
-//   transform: 'translateX(-50%)',
-//   background: '#00f935',
-//   color: '#fff',
-//   textAlign: 'center',
-//   cursor: 'pointer'
-// }}>
 
 StartButton.propTypes = {
   handleClick: PropTypes.func

@@ -39,8 +39,13 @@ class App extends Component {
     dispatch(pressSpin());
     ::this.startAnim();
   }
+  startClicked(evt) {
+    evt.preventDefault();
+    this.props.dispatch(startGame());
+  }
   // TODO: html,body need to be full size.
   // TODO: Scale wheel to fit screen.
+  // TODO: React docs say that creating anon handlers can be a performance hit.
   render() {
     const { dispatch, angle, velocity, spins, tickerStarted, numSpins, score } = this.props;
     return(
@@ -66,7 +71,7 @@ class App extends Component {
             <Wheel angle={angle} />
             {
               numSpins <= 0 && velocity <= 0 ?
-              <StartButton handleClick={() => dispatch(startGame())} /> :
+              <StartButton handleClick={::this.startClicked} /> :
               <SpinButton
                 startSpin={::this.startSpin}
                 isSpinning={velocity > 0 ? true : false}
