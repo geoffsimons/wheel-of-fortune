@@ -2,7 +2,16 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// TODO: dotenv load
+const production = process.env.NODE_ENV === 'production';
+
+const devPlugins = production ? [] : [
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoEmitOnErrorsPlugin()
+];
 
 module.exports = {
   entry: [
@@ -12,11 +21,16 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    ...devPlugins,
+    new ExtractTextPlugin('dist/index.css'),
+    new HTMLPlugin({
+      template: 'index.html',
+      inject: 'body',
+      filename: 'index.html'
+    })
   ],
   resolve: {
     // alias: { debug: './app/util/debug.js' }, //NOT WORKING
