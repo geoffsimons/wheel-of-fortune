@@ -74,7 +74,8 @@ class App extends Component {
             {
               numSpins <= 0 && velocity <= 0 ?
               <button className="btn pressable"
-                onClick={::this.startClicked}
+                onMouseUp={::this.startClicked}
+                onTouchEnd={::this.startClicked}
                 >
                 START
               </button> :
@@ -92,6 +93,7 @@ class App extends Component {
     )
   }
 }
+// onClick={::this.startClicked}
 // <StartButton handleClick={::this.startClicked} /> :
 // <div className="spin-log">
 //   {
