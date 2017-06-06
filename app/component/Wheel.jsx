@@ -26,6 +26,26 @@ function Wheel(props) {
         style={style}>
         {wedges}
       </div>
+      <svg xmlns="http://www.w3.org/2000/svg"
+        width="50" height="50"
+        style={{
+          position: 'absolute',
+          top: '-1px',
+          left: '50%',
+          transform: 'translateX(-50%) scaleX(0.5)'
+        }}
+        >
+        <defs>
+          <mask id="myMask">
+            <rect width="100%" height="100%" x="0" y="0" fill="white" />
+            <circle cx="-25%" cy="70%" r="65%" />
+            <circle cx="125%" cy="70%" r="65%" />
+            <circle cx="0%" cy="100%" r="50%" />
+            <circle cx="100%" cy="100%" r="50%" />
+          </mask>
+        </defs>
+        <rect width="100%" height="100%" x="0" y="0" fill="#00f935" mask="url(#myMask)" />
+      </svg>
     </div>
   );
 }

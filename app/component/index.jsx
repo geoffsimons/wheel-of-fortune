@@ -65,7 +65,7 @@ class App extends Component {
             </div>
             <Wheel angle={angle} />
             {
-              numSpins <= 0 ?
+              numSpins <= 0 && velocity <= 0 ?
               <StartButton handleClick={() => dispatch(startGame())} /> :
               <SpinButton
                 startSpin={::this.startSpin}
