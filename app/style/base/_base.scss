@@ -86,37 +86,6 @@ $wall: 2px solid $green;
 }
 
 // TODO Break out components into separate files, if needed.
-// .num-spins {
-//   border-bottom: $wall;
-//   border-right: $wall;
-//   border-bottom-right-radius: 5px;
-//   padding: 5px 10px;
-//   width: 30px;
-//   text-align: center;
-//   background: $white;
-//   color: linear-gradient($white, $black);
-//   font-size: 1.2rem;
-//   float: left;
-//   label {
-//     display: block;
-//     margin-top: 0.2rem;
-//     font-size: 0.6rem;
-//   }
-// }
-//
-// .score {
-//   padding: 5px 10px;
-//   width: 30px;
-//   text-align: center;
-//   background: $white;
-//   font-size: 1.2rem;
-//   float: right;
-//   label {
-//     display: block;
-//     margin-top: 0.2rem;
-//     font-size: 0.6rem;
-//   }
-// }
 
 .wheel {
   padding: 5%;
