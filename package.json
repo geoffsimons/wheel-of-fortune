@@ -1,7 +1,10 @@
 {
-  "name": "react-anim",
+  "name": "wheel-of-fortune",
   "version": "1.0.0",
-  "description": "React animation demo",
+  "description": "Wheel of Fortune",
+  "engines": {
+    "node": "6.x"
+  },
   "main": "index.js",
   "scripts": {
     "no-worky-heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
