@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Wheel from './wheel';
+import Wheel from './Wheel';
 import Controls from './Controls';
 import Meter from './lib/Meter';
 import SpinButton from './SpinButton';
