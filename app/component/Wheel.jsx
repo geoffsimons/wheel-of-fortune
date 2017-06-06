@@ -1,45 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import debug from 'debug';
+import debug from '../util/debug';
+// const debug = console.log;
+import Wedge from './Wedge';
+import config from '../config/wheel';
 
-// TODO: Build wedges from prizes array.
+debug('CONFIG:', config);
+
+// TODO: Accept prop.prizes.
+// TODO: Accept a prop for radius, or for width & height.
 function Wheel(props) {
-  const trans = {
-    transform: `rotate(${props.angle}deg)`,
-    transformOrigin: '100px 100px'
+  const style = {
+    transform: `rotate(${props.angle}deg)`
   };
-  debug('TRANS:', trans);
+  const { prizes } = config;
+  // debug('TRANS:', trans);
+  const wedges = prizes.map((p, index) => {
+    return <Wedge key={index} bgcolor={p.color} label={p.label} angle={p.angle} offset={p.offset} />;
+  });
+  debug('PRIZES:', prizes);
+  debug('WEDGES:', wedges);
   return(
-    <div id="wheel" style={trans}>
-      <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <div className="wheel">
+      <div className="wedges"
+        style={style}>
+        {wedges}
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg"
+        width="50" height="50"
+        style={{
+          position: 'absolute',
+          top: '-1px',
+          left: '50%',
+          transform: 'translateX(-50%) scaleX(0.5)'
+        }}
+        >
         <defs>
-          <clipPath id="myClip">
-            <polygon points="100,100 200,0 200,200" />
-          </clipPath>
+          <mask id="myMask">
+            <rect width="100%" height="100%" x="0" y="0" fill="white" />
+            <circle cx="-25%" cy="70%" r="65%" />
+            <circle cx="125%" cy="70%" r="65%" />
+            <circle cx="0%" cy="100%" r="50%" />
+            <circle cx="100%" cy="100%" r="50%" />
+          </mask>
         </defs>
-
-        <circle fill="#3DD" cx="100" cy="100" r="100"
-                clipPath="url(#myClip)"/>
-        <circle fill="#8C8" cx="100" cy="100" r="100"
-                clipPath="url(#myClip)"
-                transform="rotate(90, 100, 100)"/>
-        <circle fill="#C88" cx="100" cy="100" r="100"
-                clipPath="url(#myClip)"
-                transform="rotate(180, 100, 100)"/>
-        <circle fill="#88C" cx="100" cy="100" r="100"
-                clipPath="url(#myClip)"
-                transform="rotate(270, 100, 100)"/>
-        <text x="195" y="115" textAnchor="end"
-                fontFamily="Arial" fontSize="35" stroke="#000"
-                transform="rotate(90, 100,100)">100</text>
-        <text x="195" y="115" textAnchor="end"
-                fontFamily="Arial" fontSize="35" stroke="#000"
-                transform="rotate(180, 100,100)">200</text>
-        <text x="195" y="115" textAnchor="end"
-                fontFamily="Arial" fontSize="35" stroke="#000"
-                transform="rotate(270, 100,100)">50</text>
-        <text x="195" y="115" textAnchor="end"
-                fontFamily="Arial" fontSize="35" stroke="#000">150</text>
+        <rect width="100%" height="100%" x="0" y="0" fill="#00f935" mask="url(#myMask)" />
       </svg>
     </div>
   );

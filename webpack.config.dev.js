@@ -14,14 +14,12 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
-  resolve {
-    alias: { debug: './app/util/debug' }
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {
+    // alias: { debug: './app/util/debug.js' }, //NOT WORKING
     extensions: ['.js', '.jsx']
   },
   module: {
@@ -33,7 +31,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass')
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'sass-loader'
+        }]
       }
     ]
   }
