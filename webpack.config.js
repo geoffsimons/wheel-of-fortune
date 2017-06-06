@@ -5,7 +5,8 @@ const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// TODO: dotenv load
+// TODO: dotenv load?
+console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
 const production = process.env.NODE_ENV === 'production';
 
 const devPlugins = production ? [] : [
@@ -13,9 +14,13 @@ const devPlugins = production ? [] : [
   new webpack.NoEmitOnErrorsPlugin()
 ];
 
+const devEntry = production ? [] : [
+  'webpack-hot-middleware/client'
+];
+
 module.exports = {
   entry: [
-    'webpack-hot-middleware/client',
+    ...devEntry,
     './app/index.jsx'
   ],
   output: {
