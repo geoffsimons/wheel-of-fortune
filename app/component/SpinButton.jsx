@@ -12,26 +12,20 @@ function SpinButton(props) {
   const bg = '#004ff9';
   return(
     <div
+      className="btn"
       onMouseDown={handlePress}
       onTouchStart={handlePress}
       style={{
-        borderRadius: '5px',
-        width: '100px',
-        height: '20px',
-        transform: 'translateX(-50%)',
         background: isSpinning ? fg : bg,
-        color: isSpinning ? '#000' : fg,
-        textAlign: 'center',
-        cursor: 'pointer'
+        color: isSpinning ? '#000' : fg
       }}>
-      <div style={{
-          width: Math.round(velocity) +'%',
-          height: '100%',
-          position: 'absolute',
-          background: '#00f935'
+      <div
+        className="meter"
+        style={{
+          width: Math.round(velocity*0.9) +'%'
         }}>
       </div>
-      SPIN
+      <label>SPIN</label>
     </div>
   );
 }

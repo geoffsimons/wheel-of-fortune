@@ -8,22 +8,24 @@ function StartButton(props) {
   // TODO: Should we use onClick, or the 2 events below?
   return(
     <div
-      onMouseDown={handleClick}
-      onTouchStart={handleClick}
-      style={{
-        borderRadius: '5px',
-        width: '100px',
-        height: '20px',
-        transform: 'translateX(-50%)',
-        background: '#00f935',
-        color: '#fff',
-        textAlign: 'center',
-        cursor: 'pointer'
-      }}>
-      START
+      onClick={handleClick}
+      className="btn pressable">
+      <label>START</label>
     </div>
   );
 }
+// onMouseDown={handleClick}
+// onTouchStart={handleClick}
+// style={{
+//   borderRadius: '5px',
+//   width: '100px',
+//   height: '20px',
+//   transform: 'translateX(-50%)',
+//   background: '#00f935',
+//   color: '#fff',
+//   textAlign: 'center',
+//   cursor: 'pointer'
+// }}>
 
 StartButton.propTypes = {
   handleClick: PropTypes.func

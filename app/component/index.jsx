@@ -48,16 +48,22 @@ class App extends Component {
         onMouseUp={() => dispatch(releaseSpin())}
         onTouchEnd={() => dispatch(releaseSpin())}
         >
-        <div className="app">
-          <div className="num-spins">
-            {numSpins}
+        <header>
+          <div className="title">
+            Wheel of Fortune
           </div>
-          <div className="score">
-            {score}
-          </div>
-          <Wheel angle={angle} />
-
-          <div className="btn-container">
+        </header>
+        <main>
+          <div className="app">
+            <div className="num-spins">
+              {numSpins}
+              <label>SPINS</label>
+            </div>
+            <div className="score">
+              {score}
+              <label>SCORE</label>
+            </div>
+            <Wheel angle={angle} />
             {
               numSpins <= 0 ?
               <StartButton handleClick={() => dispatch(startGame())} /> :
@@ -68,18 +74,19 @@ class App extends Component {
                 />
             }
           </div>
-          <div className="spin-log">
-            {
-              spins.map((spin, index) => {
-                return <div key={index}>{Math.round(spin.angle)}: {spin.prize.label}</div>;
-              })
-            }
-          </div>
-        </div>
+        </main>
+        <footer>Copyright &copy; 2017 Geoff Simons</footer>
       </div>
     )
   }
 }
+// <div className="spin-log">
+//   {
+//     spins.map((spin, index) => {
+//       return <div key={index}>{Math.round(spin.angle)}: {spin.prize.label}</div>;
+//     })
+//   }
+// </div>
 // <button
 //   onMouseDown={::this.startSpin}
 //   onTouchStart={::this.startSpin}
