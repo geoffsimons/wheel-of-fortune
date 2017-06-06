@@ -41,6 +41,7 @@ class App extends Component {
   }
   startClicked(evt) {
     evt.preventDefault();
+    alert('Starting game');
     this.props.dispatch(startGame());
   }
   // TODO: html,body need to be full size.
@@ -72,7 +73,11 @@ class App extends Component {
             <div className="btn-container">
             {
               numSpins <= 0 && velocity <= 0 ?
-              <StartButton handleClick={::this.startClicked} /> :
+              <button className="btn pressable"
+                onClick={::this.startClicked}
+                >
+                START
+              </button> :
               <SpinButton
                 startSpin={::this.startSpin}
                 isSpinning={velocity > 0 ? true : false}
@@ -87,6 +92,7 @@ class App extends Component {
     )
   }
 }
+// <StartButton handleClick={::this.startClicked} /> :
 // <div className="spin-log">
 //   {
 //     spins.map((spin, index) => {

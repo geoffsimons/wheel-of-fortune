@@ -13,7 +13,7 @@ function StartButton(props) {
     <button
       onClick={handleClick}
       className="btn pressable">
-      <label>START</label>
+      START
     </button>
   );
 }
