@@ -4,7 +4,7 @@
   "description": "React animation demo",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/webpack/bin/webpack.js --progress --colors",
     "watch": "node dev-server.js",
