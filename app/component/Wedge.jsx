@@ -16,20 +16,20 @@ function Wedge(props) {
   const points = `${cx},${cy} ${p.x},${p.y} ${cx+r},${cy+r} ${cx+r},${cy}`;
   const rot = `rotate(${offset}, 100, 100)`;
   const style = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
     transform: `rotate(${offset}deg)`,
-    transformOrigin: '100px 100px',
+    // transformOrigin: '100px 100px',
     // border: '1px solid red'
   };
   debug('POINTS:', points);
   debug('ROT:', rot);
   return(
     <svg xmlns="http://www.w3.org/2000/svg"
-      width="200" height="200"
+      className="wedge"
       style={style}
-      >
+      width="200" height="200">
       <defs>
         <clipPath id="myClip">
           <polygon points={points} />
@@ -39,16 +39,18 @@ function Wedge(props) {
         cx="100" cy="100" r="100"
         fill={bgcolor}
         clipPath="url(#myClip)"/>
-      <text
-        x="197" y="110"
-        textAnchor="end"
-        fontFamily="Arial" fontSize="30"
-        stroke="#000" fill={color || '#000'}
-        transform={`rotate(${angle/2}, ${cx},${cy})`}>{label}</text>
     </svg>
-  )
+  );
 }
+// <div className="wedge">
+// </div>
 // <polygon points={points} />
+// <text
+//   x="197" y="110"
+//   textAnchor="end"
+//   fontFamily="Arial" fontSize="30"
+//   stroke="#000" fill={color || '#000'}
+//   transform={`rotate(${angle/2}, ${cx},${cy})`}>{label}</text>
 
 Wedge.propTypes = {
   color: PropTypes.string,
