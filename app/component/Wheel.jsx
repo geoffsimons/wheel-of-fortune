@@ -18,6 +18,16 @@ function Wheel(props) {
   const wedges = prizes.map((p, index) => {
     return <Wedge key={index} bgcolor={p.color} label={p.label} angle={p.angle} offset={p.offset} />;
   });
+  const labels = prizes.map((p, index) => {
+    return(
+      <div className="labels"
+        style={{
+          transform: `rotate(${p.offset + p.angle/2}deg)`
+        }}>
+        <label key={index}>{p.label}</label>
+      </div>
+    );
+  });
   debug('PRIZES:', prizes);
   debug('WEDGES:', wedges);
   return(
@@ -25,6 +35,7 @@ function Wheel(props) {
       <div className="wedges"
         style={style}>
         {wedges}
+        {labels}
       </div>
       <svg xmlns="http://www.w3.org/2000/svg"
         width="50" height="50"

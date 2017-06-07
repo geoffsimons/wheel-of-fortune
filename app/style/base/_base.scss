@@ -104,6 +104,34 @@ $wall: 2px solid $green;
   width: 200px;
   transform-origin: 100px 100px;
 }
+.wedge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 100px 100px;
+}
+
+.labels {
+  position: absolute;;
+  height: 200px;
+  width: 200px;
+  top: 0;
+  left: 0;
+  // outline: 1px red solid;
+  -webkit-perspective: 100;
+
+  label {
+    position: absolute;
+    text-align: right;
+    width: 100px;
+    right: 0;
+    top: 50%;
+    font-size: 1.5rem;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: translateY(-50%) rotateY(-60deg);
+    // outline: 1px solid blue;
+  }
+}
 
 .btn-container {
   padding: 5%;
