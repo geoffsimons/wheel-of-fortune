@@ -118,7 +118,7 @@ $wall: 2px solid $green;
   top: 0;
   left: 0;
   // outline: 1px red solid;
-  -webkit-perspective: 100;
+  -webkit-perspective: 316;
 
   label {
     position: absolute;
@@ -128,7 +128,7 @@ $wall: 2px solid $green;
     top: 50%;
     font-size: 1.5rem;
     -webkit-transform-origin: 0 0;
-    -webkit-transform: translateY(-50%) rotateY(-60deg);
+    -webkit-transform: translateY(-50%) rotateY(-40deg);
     // outline: 1px solid blue;
   }
 }
